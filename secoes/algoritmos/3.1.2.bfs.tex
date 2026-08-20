@@ -110,9 +110,31 @@ Veja a BFS funcionando de maneira mais visual, iniciando em $BFS(1)$:\\
 	\raggedright
 	Remove 2. Visita e insere o vizinho 4. Fila: [3, 4].
 \end{minipage}
+\vspace{0.3cm}
+\noindent
+\begin{center}
+	\textbf{Passo 4: finalizando BFS}\\
+	\vspace{0.2cm}
+	\begin{tikzpicture}[every node/.style={circle, draw, minimum size=0.5cm, thick},
+			visited/.style={fill=gray!30},
+			current/.style={fill=red!50, draw=red!80},
+			finished/.style={fill=gray!80}]
 
-Veja que a ordem de visitação por níveis da BFS resulta em: $[1, 2, 3,
-		4]$.\\\newpage
+		\node[finished] (1) at (0, 1) {1};
+		\node[finished] (2) at (-1, 0) {2};
+		\node[finished] (3) at (1, 0) {3};
+		\node[finished] (4) at (-1, -1) {4};
+
+		\draw[finished] (1) -- (2);
+		\draw[finished] (1) -- (3);
+		\draw[finished] (2) -- (4);
+	\end{tikzpicture}
+
+	\footnotesize
+	\centering
+	Removemos o vizinho 4 e ele não tinha vizinhos, então finalizado. E vamos remover 3 e vai ocorrer o mesmo de não ter vizinhos, logo finalizamos a BFS.
+\end{center}
+Veja que a ordem de visitação por níveis da BFS resulta em: $[1, 2, 3, 4]$.
 
 \paragraph{Implementação: }\mbox{}
 Vejamos a implementação da BFS em Python e em C++.
