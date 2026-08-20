@@ -1,0 +1,57 @@
+\section{Introdução aos Grafos}
+\subsection{Ideia de Grafos}
+
+Os grafos são estruturas de dados que tem como ideia principal criar
+relacionamentos em um mesmo ambiente ou ambientes diferentes (grafos
+bipartidos). Através dessa estrutura de dados, podemos representar
+computacionalmente e matematicamente relações como por exemplo: interações em
+redes sociais, caminhos entre cidades, fluxo de encanamentos etc.
+
+Os grafos possuem dois conceitos básicos:
+\begin{itemize}
+	\item \textbf{Vértices: }Os vértices são a estrutura principal apresentada, ele é quem determina qual é o "universo" que estamos estudando. Exemplos de vértices: cidades, pessoas para redes sociais, pontos de articulação em encanamento etc.
+	\item \textbf{Arestas: }As arestas representam as ligações (relacionamentos) entre os vértices, elas podem ser \textbf{ponderadas} ou não (isto é, terem valores ou não). As arestas podem representar diversos tipos de relacionamentos, por exemplo em um grafo composto por vértices representando cidades, as arestas entre dois vértices podem representar a existência de um caminho da cidade U para V tendo um valor de W.
+\end{itemize}
+
+\vspace{0.5cm} % Espaçamento vertical para separar o texto da figura
+
+\begin{figure}[h] % [h] diz para tentar colocar a imagem 'here' (aqui)
+	\centering % Centraliza o desenho
+	\begin{tikzpicture}[node distance=1.5cm, every node/.style={circle, draw, minimum size=20pt}]
+		% Definindo os nós (vértices) e suas posições
+		\node (A) {A};
+		\node (B) [right=of A] {B};
+		\node (C) [below=of A] {C};
+		\node (D) [right=of C] {D};
+		\node (E) [right=of B] {E}; % Adicionando um quinto vértice
+
+		% Definindo as arestas (ligações) e seus pesos
+		% (Arestas não ponderadas)
+		\draw (A) -- (B);
+		\draw (A) -- (C);
+
+		% (Arestas ponderadas)
+		\draw (B) -- node[midway, above, sloped, draw=none] {10} (E);
+		\draw (C) -- node[midway, below, draw=none] {5} (D);
+		\draw (D) -- node[midway, right, draw=none] {2} (E);
+		\draw (B) -- node[midway, right, draw=none] {8} (D); % Aresta diagonal
+	\end{tikzpicture}
+	\caption{Exemplo de um grafo simples ilustrando vértices e arestas (algumas ponderadas).}
+	\label{fig:grafo_exemplo}
+\end{figure}
+
+\FloatBarrier % Garante que a figura apareça aqui e não flutue muito para baixo
+
+\subsection{Definições de Grafos}
+
+Abaixo estão apresentados algumas definições de grafos, para entendimento de
+outros assuntos posteriores.
+
+\begin{itemize}[leftmargin=3.0cm, align=left]
+	\item \textbf{Grafo Esparso:} Um grafo onde o número de arestas ($E$) é muito menor que o quadrado do número de vértices ($V^2$). Geralmente, dizemos que $E \approx V$.
+	\item \textbf{Grafo denso:} Ao contrário do esparso, aqui o número de arestas se aproxima de $V^2$.
+	\item \textbf{Ciclo:} Um caminho que começa e termina no mesmo vértice, sem repetir arestas.
+	\item \textbf{Grau de um vértice:} O número de arestas incidentes a um vértice. Em grafos direcionados, separamos em grau de entrada (\textit{in-degree}) e grau de saída (\textit{out-degree}).
+	\item \textbf{Caminho:} Uma sequência de vértices onde cada par consecutivo está conectado por uma aresta.
+\end{itemize}
+

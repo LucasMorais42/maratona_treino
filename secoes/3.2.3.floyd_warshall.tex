@@ -1,0 +1,62 @@
+
+\subsubsection{Floyd-Warshall (Todos os Pares)}
+O algoritmo de Floyd-Warshall resolve o problema do caminho mínimo entre
+\textbf{todos os pares de vértices} do grafo simultaneamente. Ele utiliza
+Programação Dinâmica, avaliando se o caminho de $i$ para $j$ passando por um
+vértice intermediário $k$ é menor que o caminho direto conhecido. A
+complexidade de tempo é $\mathcal{O}(V^3)$.
+
+\paragraph{Pseudo-Código: }\mbox{}\\
+\begin{algorithm}[H]
+    \SetAlgoLined
+    \SetKwFunction{FloydWarshall}{FloydWarshall}
+    \SetKwProg{Fn}{Função}{:}{}
+
+    \Fn{\FloydWarshall{$matrizAdj, V$}}{
+        $dist \gets matrizAdj$\;
+
+        \Para{$k \gets 0$ \Ate $V - 1$}{
+            \Para{$i \gets 0$ \Ate $V - 1$}{
+                \Para{$j \gets 0$ \Ate $V - 1$}{
+                    \Se{$dist[i][k] + dist[k][j] < dist[i][j]$}{
+                        $dist[i][j] \gets dist[i][k] + dist[k][j]$\;
+                    }
+                }
+            }
+        }
+    }
+    \caption{Algoritmo de Floyd-Warshall}
+\end{algorithm}
+
+\paragraph{Implementação: }\mbox{}\\
+\textbf{Python: }
+\begin{lstlisting}[language=Python]
+def floyd_warshall(n, adj_matrix):
+    # Copia a matriz de adjacencia
+    dist = [row[:] for row in adj_matrix]
+    
+    for k in range(n):
+        for i in range(n):
+            for j in range(n):
+                if dist[i][k] + dist[k][j] < dist[i][j]:
+                    dist[i][j] = dist[i][k] + dist[k][j]
+                    
+    return dist
+\end{lstlisting}
+
+\vspace{0.3cm}
+\textbf{C++:}
+\begin{lstlisting}[language=C++]
+void floyd_warshall(int n, vector<vector<int>>& dist) {
+    // dist ja eh inicializada com a matriz de adjacencia
+    for (int k = 0; k < n; ++k) {
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (dist[i][k] < 1e9 && dist[k][j] < 1e9) {
+                    dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j]);
+                }
+            }
+        }
+    }
+}
+\end{lstlisting}

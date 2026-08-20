@@ -1,0 +1,60 @@
+\documentclass[]{article}
+\usepackage{sbc-template}
+\usepackage{graphicx,url}
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+\usepackage{placeins}
+\usepackage{tikz}
+\usepackage{listings}
+\usepackage{xcolor}
+
+% Definindo cores personalizadas estilo editor moderno
+\definecolor{codegreen}{rgb}{0,0.5,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.96,0.96,0.96} % Fundo cinza bem clarinho
+\definecolor{codeblue}{rgb}{0.1,0.1,0.8}
+
+% Criando um estilo padrão "mystyle"
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen}\itshape,
+	keywordstyle=\color{codeblue}\bfseries,
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\ttfamily\small,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2,
+	frame=single,
+	rulecolor=\color{black!20} % Borda cinza suave
+}
+
+% Aplica o estilo globalmente
+\lstset{style=mystyle}
+\usepackage{amsmath}
+\usepackage[portuguese, ruled, linesnumbered]{algorithm2e}
+
+
+\usetikzlibrary{positioning}
+
+\title{Revisão Geral para a Maratona SBC}
+\sloppy
+\author{Lucas A. Morais}
+
+
+\address{FATEC Itu}
+
+\begin{document}
+\maketitle
+\input{secoes/1.grafos_introd} 
+\input{secoes/2.definicao_de_grafos}
+\input{secoes/3.algoritmos_de_grafo}
+\end{document}
